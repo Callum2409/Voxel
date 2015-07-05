@@ -10,6 +10,8 @@ function [t, a, s] = GetMat(material)
 
 %switch to get the material information
 switch(lower(material))
+%mass, density, absorbtion cross section, scattering cross section
+%uses cgs units
     case {'water', 'h2o'}
         [t, a, s] = MaterialInfo(18, 1, 0.6652, 103.0);
     case {'lead', 'pb'}
