@@ -22,6 +22,8 @@ switch(lower(material))
         colour = [.8, .8, 0];
     case {'heavy water', 'd2o'}
         colour = [.85, .85, .85];
+    case {'uranium233', 'u233'}
+        colour = [.22, 1, .08];
     otherwise
         colour = 'w';
 end
