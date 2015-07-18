@@ -51,7 +51,7 @@ while n <= length(rots)
         
         if rand < curA/curT %if absorbed
             if rand < curF/curT %if fission???
-                pos(i+1, 1) = 1;%set this so can set a specific colour
+                pos(i+1, 1) = 1;%although not shown, needs to be set so no error
                 for a = 1:2%gets absorbed and produces 2 neutrons
                     rots(end+1) = 1;%add a new isotropic neutron
                     startPos(end+1, :) = pos(i, :);%set start position of neutron
@@ -65,8 +65,6 @@ while n <= length(rots)
                 atr(1) = atr(1)+1;
                 break;%break from the loop
             end
-            
-            %break;%break from the loop
         end
         
         i=i+1;%next step
@@ -76,7 +74,6 @@ while n <= length(rots)
     if show
         hold on;
         %display the lines
-        disp('drawing');
         plot3(pos(1:end-1, 1), pos(1:end-1, 2), pos(1:end-1, 3), 'k');
         %display the final point colour
         if ~fission %only display end if not fissioned
@@ -84,6 +81,11 @@ while n <= length(rots)
         end
     end
     n = n+1;%increase the neutron number
+    
+    if n> 500 %have this to break so that something is shown
+        %without the break, the system goes on forever
+        break;
+    end
 end
 
 if show
